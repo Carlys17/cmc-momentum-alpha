@@ -2,11 +2,42 @@
 
 > BNB Hack: AI Trading Agent Edition — Track 2: Strategy Skills ($6,000)
 
-A **regime-adaptive, 6-signal** CMC Skill for BNB Chain BEP-20 tokens. Detects market conditions (BULL/BEAR/RANGING) and adjusts entry rules automatically. Backtested with **real Binance OHLCV data** using walk-forward methodology.
+A **CMC Skill** — a structured strategy spec that any AI agent can read and execute. The agent fetches real market data, computes 6 technical and sentiment signals, detects market regime, and generates trading recommendations for 149 eligible BNB Chain tokens.
+
+---
+
+## How It Works
+
+```
+┌─────────────────────────────────────────────────────┐
+│                    AI AGENT                          │
+│                                                     │
+│  1. Read SKILL.md (strategy spec)                   │
+│  2. Fetch data from Binance + CMC + alternative.me  │
+│  3. Compute 6 signals                               │
+│  4. Detect regime (BULL/BEAR/RANGING)               │
+│  5. Generate buy/sell/hold recommendations           │
+└─────────────────────────────────────────────────────┘
+
+Or, as a human:
+  Run backtest.py → see real results
+```
 
 ---
 
 ## Quick Start
+
+### As an AI Agent (primary use)
+
+Load `SKILL.md` into any LLM and ask:
+
+```
+Read the SKILL.md file. Fetch data from the endpoints listed,
+compute all 6 signals for the top eligible tokens, and give
+me today's trading recommendations.
+```
+
+### As a Human (verification)
 
 ```bash
 git clone https://github.com/Carlys17/cmc-momentum-alpha.git
@@ -15,120 +46,157 @@ pip install requests
 python3 backtest.py
 ```
 
-No API keys. No accounts. Just run.
+---
+
+## Files
+
+| File | Purpose | Who Reads It |
+|------|---------|--------------|
+| `SKILL.md` | Strategy specification | AI Agent (primary deliverable) |
+| `backtest.py` | Walk-forward backtest | Human judges (verification) |
+| `backtest_results.json` | Full trade log + equity curve | Human judges (proof) |
+| `eligible_tokens.txt` | 149 approved BEP-20 tokens | AI Agent |
+| `README.md` | Documentation | Human judges |
 
 ---
 
-## What Is This
+## The Strategy (SKILL.md summary)
 
-A **CMC Skill** — a structured strategy spec that any AI agent can read and execute. Like Quantopian, but for LLMs.
-
-| File | Purpose |
-|------|---------|
-| `SKILL.md` | Strategy specification (read this first) |
-| `backtest.py` | Walk-forward backtest with real data |
-| `backtest_results.json` | Full trade log + equity curve |
-| `eligible_tokens.txt` | 149 approved BEP-20 tokens |
-| `README.md` | You are here |
-
----
-
-## How It Works
-
-```
-┌─────────────────────────────────────────────────────────┐
-│                 REGIME DETECTION                         │
-│                                                          │
-│  BULL?    → entry ≥ 0.50 (ride momentum)                │
-│  RANGING? → entry ≥ 0.55 (standard)                     │
-│  BEAR?    → entry ≥ 0.65 (only strong setups)           │
-└─────────────────────┬───────────────────────────────────┘
-                      │
-         ┌────────────▼────────────┐
-         │   6-SIGNAL COMPOSITE    │
-         │                         │
-         │  RSI (25%)              │  ← Oversold + rising = buy
-         │  MACD (20%)             │  ← Crossover direction
-         │  Trend Filter (25%)     │  ← Price vs SMA20/SMA50
-         │  Bollinger (10%)        │  ← Lower band = buy
-         │  Volume (10%)           │  ← High volume = confirm
-         │  Fear & Greed (10%)     │  ← Fear = opportunity
-         │                         │
-         │  Score: [0.0 — 1.0]     │
-         └────────────┬────────────┘
-                      │
-              ┌───────▼───────┐
-              │ ENTRY / EXIT  │
-              │               │
-              │ Score ≥ 0.55  │  → BUY (threshold varies by regime)
-              │ Score < 0.30  │  → SELL
-              │ -10%          │  → STOP-LOSS
-              │ +20%          │  → TAKE-PROFIT
-              │ 21 days       │  → TIME EXIT (if losing)
-              └───────────────┘
-```
-
----
-
-## 6 Signals Explained
+### 6 Signals
 
 | # | Signal | Weight | Source | Logic |
 |---|--------|--------|--------|-------|
-| 1 | **RSI (14-period)** | 25% | Binance 1d OHLCV | Oversold (<30) + RSI rising = buy. Not just low RSI — must be turning up. |
-| 2 | **MACD Histogram** | 20% | Binance 1d OHLCV | Bullish crossover (MACD > signal) = buy. Uses 120 days for EMA convergence. |
-| 3 | **Trend Filter** | 25% | Binance SMA20/SMA50 | Price > SMA20 AND SMA20 > SMA50 = strong uptrend. Prevents buying into downtrend. |
-| 4 | **Bollinger Bands** | 10% | Binance 1d OHLCV | Mean-reversion: near lower band = buy, near upper = sell. |
-| 5 | **Volume Anomaly** | 10% | Binance 1d volume | Volume relative to 7-day average. High volume = confirms signal. |
-| 6 | **Fear & Greed** | 10% | alternative.me | Contrarian: Extreme Fear (0-25) = buying opportunity. |
+| 1 | **RSI (14-period)** | 25% | Binance 1d OHLCV | Oversold (<30) + RSI rising = buy |
+| 2 | **MACD Histogram** | 20% | Binance 1d OHLCV | Bullish crossover = buy |
+| 3 | **Trend Filter** | 25% | Binance SMA20/SMA50 | Price > SMA20 = uptrend |
+| 4 | **Bollinger Bands** | 10% | Binance 1d OHLCV | Lower band = buy |
+| 5 | **Volume Anomaly** | 10% | Binance 1d volume | High volume = confirm |
+| 6 | **Fear & Greed** | 10% | alternative.me | Fear = buy opportunity |
 
----
-
-## Regime Detection
+### Regime Detection
 
 ```
 BULL:   Price > SMA(20) AND SMA(20) > SMA(50) AND F&G > 40
-        → Lower entry threshold (0.50) — ride the trend
+        → Entry threshold: 0.50 (ride momentum)
 
 BEAR:   Price < SMA(20) AND SMA(20) < SMA(50) AND F&G < 30
-        → Higher entry threshold (0.65) — only strong setups
-        → Prevents buying into falling market
+        → Entry threshold: 0.65 (only strong setups)
 
 RANGING: Everything else
-        → Standard threshold (0.55)
+        → Entry threshold: 0.55 (standard)
 ```
 
-From backtest:
-```
-Day  63-90: RANGING | F&G 9-21 → +$506 P&L (43% win rate)
-Day  91+:   BEAR    | F&G 7-18 → -$138 P&L (20% win rate)
-```
+### Entry / Exit Rules
 
-Regime detection correctly limited exposure in bear market.
+```
+ENTRY:  Composite score ≥ threshold (varies by regime)
+EXIT:   Composite score < 0.30 OR stop-loss (-10%) OR take-profit (+20%)
+RISK:   Max 5 positions, 20% each, 21-day time exit
+```
 
 ---
 
-## Risk Management
+## Example: Using with an AI Agent
 
-| Parameter | Value | Why |
-|-----------|-------|-----|
-| Max positions | 5 | Diversification |
-| Position size | 20% each | Equal weight |
-| Stop-loss | -10% | Tight — limits loss per trade |
-| Take-profit | +20% | Locks in gains before reversal |
-| Time exit | 21 days | Cut losers that don't recover |
-| Max drawdown cap | -30% | Hard limit |
+### Prompt
+
+```
+You are a crypto trading analyst. Read the SKILL.md file in this repo.
+It contains a trading strategy specification.
+
+Your task:
+1. Fetch 120-day OHLCV data from Binance for these tokens:
+   BTC, ETH, BNB, XRP, ADA, DOGE, SOL, DOT, LINK, AVAX
+   Use: GET /api/v3/klines?symbol={SYM}USDT&interval=1d&limit=120
+
+2. Fetch Fear & Greed Index from:
+   GET https://api.alternative.me/fng/?limit=120
+
+3. For each token, compute:
+   - RSI (14-period)
+   - MACD histogram (12/26/9)
+   - Price vs SMA20 vs SMA50
+   - Bollinger Band position (20-period, 2 std dev)
+   - Volume vs 7-day average
+
+4. Detect market regime (BULL/BEAR/RANGING)
+
+5. Calculate composite score using the weights in SKILL.md
+
+6. Give me buy/sell/hold recommendations with reasoning
+```
+
+### Expected Output
+
+```
+MARKET REGIME: RANGING (F&G=14, BTC.D=58.2%)
+
+RECOMMENDATIONS:
+
+BUY:
+  TRX  $0.3225  Score: 0.6517  RSI:25.0 ↑ MACD:+0.005 Trend:above SMA20
+  → Oversold reversal confirmed. RSI turning up, price above short-term trend.
+  → Entry: $0.3225 | Stop-loss: $0.2903 (-10%) | Take-profit: $0.3870 (+20%)
+
+  XRP  $1.1334  Score: 0.6596  RSI:16.3 ↑ MACD:+0.023 Trend:below SMA20
+  → Deeply oversold but RSI rising. High entry threshold (BEAR regime).
+  → Entry: $1.1334 | Stop-loss: $1.0201 (-10%) | Take-profit: $1.3601 (+20%)
+
+HOLD:
+  ETH  $1,701    Score: 0.5200  RSI:62.3 MACD:neutral Trend:above SMA20
+  → Neutral. Wait for pullback or stronger signal.
+
+SELL:
+  BNB  $579      Score: 0.2800  RSI:52.8 MACD:bearish Trend:below SMA20
+  → Below SMA20 and SMA50. Downtrend confirmed. Exit if holding.
+```
+
+---
+
+## Example: Using with Different LLMs
+
+### OpenAI (GPT-4o)
+```bash
+export OPENAI_API_KEY=*** python3 backtest.py
+```
+
+### OpenRouter (any model)
+```bash
+export OPENROUTER_API_KEY=*** python3 backtest.py
+```
+
+### DeepSeek
+```bash
+export DEEPSEEK_API_KEY=*** python3 backtest.py
+```
+
+### Anthropic (Claude)
+```bash
+export ANTHROPIC_API_KEY=*** python3 backtest.py
+```
+
+### Google Gemini
+```bash
+export GEMINI_API_KEY=*** python3 backtest.py
+```
+
+### Custom Provider
+```bash
+export LLM_BASE_URL="https://your-provider.com/v1"
+export LLM_API_KEY=*** python3 backtest.py
+```
 
 ---
 
 ## Backtest Results
 
-Walk-forward backtest with **real Binance 1d OHLCV data**. No lookahead bias.
+Walk-forward backtest with **real Binance 1d OHLCV data**. No lookahead bias. No fake data.
 
 ```
 Period:         120 days (60-day lookback + 60-day trading)
 Universe:       57 eligible BEP-20 tokens
 Data:           Binance OHLCV (free, no key)
-Fear & Greed:   alternative.me (60 days history)
+Fear & Greed:   alternative.me (120 days)
 BTC Dominance:  CMC Keyless API
 
 Capital:        $10,000 → $10,367
@@ -139,7 +207,7 @@ Profit Factor:  1.477
 Sharpe Ratio:   1.001
 Avg Win:        $284.60
 Avg Loss:       $96.34
-Win/Loss Ratio: 2.95x (winners 3x larger than losers)
+Win/Loss Ratio: 2.95x
 Trades:         12 buys + 12 sells (6/month)
 ```
 
@@ -151,28 +219,20 @@ Trades:         12 buys + 12 sells (6/month)
 | Stop-loss (-10%) | 4 | -$568 |
 | Time exit (21 days) | 4 | -$202 |
 
-Take-profit trades generated 2x the losses. Strategy lets winners run, cuts losers fast.
-
-### Trade Log (sample)
+### Sample Trades
 
 ```
-BUY   ZEC  $316.75  day 60  RSI:48.7  Trend:above  Regime:RANGING  Score:0.6466
+BUY   ZEC  $316.75  day 60  RSI:48.7  MACD:bull  Trend:above  Score:0.6466
 SELL  ZEC  $384.97  day 70  +$430.75  take_profit
 
-BUY   STG  $0.2168  day 66  RSI:43.3  Trend:above  Regime:RANGING  Score:0.6577
-SELL  STG  $0.2654  day 75  +$196.59  take_profit
-
-BUY   ALGO $0.1032  day 60  RSI:35.6  Trend:below  Regime:RANGING  Score:0.5695
-SELL  ALGO $0.1285  day 76  +$251.04  take_profit
-
-BUY   DYDX $0.1557  day 90  RSI:29.3  Trend:above  Regime:BEAR     Score:0.6976
+BUY   DYDX $0.1557  day 90  RSI:29.3  MACD:bull  Trend:above  Score:0.6976
 SELL  DYDX $0.1908  day 100 +$260.00  take_profit
 
-BUY   LRC  $0.0402  day 60  RSI:16.0  Trend:below  Regime:RANGING  Score:0.5790
+BUY   LRC  $0.0402  day 60  RSI:16.0  MACD:bear  Trend:below  Score:0.5790
 SELL  LRC  $0.0348  day 64  -$171.94  stop_loss
 ```
 
-Full trade log: `backtest_results.json`
+Full log: `backtest_results.json`
 
 ---
 
@@ -180,41 +240,27 @@ Full trade log: `backtest_results.json`
 
 | Source | Data | Endpoint |
 |--------|------|----------|
-| **Binance** | OHLCV candles (1d, 120 days) | `api.binance.com/api/v3/klines` |
-| **CMC Keyless** | BTC dominance, global metrics | `api.coinmarketcap.com/data-api/v3` |
-| **alternative.me** | Fear & Greed Index (120 days) | `api.alternative.me/fng` |
+| **Binance** | OHLCV candles (1d, 120 days) | `GET /api/v3/klines?symbol={SYM}USDT&interval=1d&limit=120` |
+| **CMC Keyless** | BTC dominance, global metrics | `GET /data-api/v3/global-metrics/quotes/latest` |
+| **alternative.me** | Fear & Greed Index (120 days) | `GET /fng/?limit=120` |
 
 ---
 
-## Usage
+## CMC Skill Specification
 
-### Run Backtest
-```bash
-python3 backtest.py
-```
+The strategy is exported as a structured CMC Skill in `SKILL.md`:
+- YAML frontmatter (name, version, type, data_source)
+- Signal definitions with formulas
+- Regime detection rules
+- Entry/exit rules with thresholds
+- Risk management parameters
+- How-to guide for LLM agents
 
-### Use as LLM Skill
-Read `SKILL.md` — it has all signal formulas, data endpoints, entry/exit rules. Any LLM can read it and generate trading recommendations.
-
-### Use with Any LLM
-```bash
-# OpenAI
-export OPENAI_API_KEY=*** python3 backtest.py
-
-# OpenRouter
-export OPENROUTER_API_KEY=*** python3 backtest.py
-
-# DeepSeek
-export DEEPSEEK_API_KEY=*** python3 backtest.py
-
-# Any OpenAI-compatible provider
-export LLM_BASE_URL="https://your-provider.com/v1"
-export LLM_API_KEY=*** python3 backtest.py
-```
+Any AI agent can read `SKILL.md` and execute the strategy.
 
 ---
 
-## Why This Wins
+## Judging Criteria
 
 | Criteria | How We Address It |
 |----------|-------------------|
@@ -225,10 +271,10 @@ export LLM_API_KEY=*** python3 backtest.py
 
 ### Juri Example Match
 
-| Example | Match |
-|---------|-------|
-| "momentum Skill that blends RSI, MACD, and Fear & Greed" | ✓ RSI (25%) + MACD (20%) + F&G (10%) |
-| "regime-detection Skill that switches strategy" | ✓ BULL/BEAR/RANGING with adaptive thresholds |
+| Example | Status |
+|---------|--------|
+| "momentum Skill that blends RSI, MACD, and Fear & Greed" | ✓ |
+| "regime-detection Skill that switches strategy" | ✓ |
 | "sentiment-divergence Skill" | ✗ Not implemented |
 | "derivatives positioning" | ✗ Not implemented |
 
