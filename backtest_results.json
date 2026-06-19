@@ -1,0 +1,334 @@
+{
+  "return_pct": -10.31,
+  "max_drawdown_pct": 12.42,
+  "win_rate": 50.0,
+  "total_trades": 20,
+  "trades": [
+    {
+      "type": "BUY",
+      "sym": "SHIB",
+      "price": 5.58e-06,
+      "amount": 2000.0,
+      "day": 33,
+      "score": 0.5843,
+      "rsi": 18.0,
+      "macd_hist": 0.0,
+      "bb_pos": 0.13,
+      "atr_pct": 4.61
+    },
+    {
+      "type": "BUY",
+      "sym": "LTC",
+      "price": 52.76,
+      "amount": 1600.0,
+      "day": 33,
+      "score": 0.5818,
+      "rsi": 19.2,
+      "macd_hist": 0.0,
+      "bb_pos": 0.11,
+      "atr_pct": 3.9
+    },
+    {
+      "type": "BUY",
+      "sym": "ADA",
+      "price": 0.2423,
+      "amount": 1280.0,
+      "day": 33,
+      "score": 0.5622,
+      "rsi": 18.6,
+      "macd_hist": 0.0,
+      "bb_pos": 0.12,
+      "atr_pct": 4.76
+    },
+    {
+      "type": "BUY",
+      "sym": "ZIL",
+      "price": 0.00388,
+      "amount": 1024.0,
+      "day": 33,
+      "score": 0.5567,
+      "rsi": 29.1,
+      "macd_hist": 0.0,
+      "bb_pos": 0.18,
+      "atr_pct": 4.92
+    },
+    {
+      "type": "BUY",
+      "sym": "AAVE",
+      "price": 85.59,
+      "amount": 819.2,
+      "day": 33,
+      "score": 0.5536,
+      "rsi": 14.7,
+      "macd_hist": 0.0,
+      "bb_pos": 0.14,
+      "atr_pct": 5.51
+    },
+    {
+      "type": "SELL",
+      "sym": "ADA",
+      "price": 0.2004,
+      "pnl": -221.35,
+      "day": 43,
+      "reason": "stop_loss"
+    },
+    {
+      "type": "SELL",
+      "sym": "AAVE",
+      "price": 71.35,
+      "pnl": -136.29,
+      "day": 44,
+      "reason": "stop_loss"
+    },
+    {
+      "type": "SELL",
+      "sym": "SHIB",
+      "price": 4.56e-06,
+      "pnl": -365.59,
+      "day": 45,
+      "reason": "stop_loss"
+    },
+    {
+      "type": "SELL",
+      "sym": "LTC",
+      "price": 43.32,
+      "pnl": -286.28,
+      "day": 45,
+      "reason": "stop_loss"
+    },
+    {
+      "type": "SELL",
+      "sym": "ZIL",
+      "price": 0.00305,
+      "pnl": -219.05,
+      "day": 45,
+      "reason": "stop_loss"
+    },
+    {
+      "type": "BUY",
+      "sym": "SHIB",
+      "price": 4.56e-06,
+      "amount": 1754.29,
+      "day": 45,
+      "score": 0.7018,
+      "rsi": 14.4,
+      "macd_hist": -0.0,
+      "bb_pos": 0,
+      "atr_pct": 5.55
+    },
+    {
+      "type": "BUY",
+      "sym": "ZIL",
+      "price": 0.00305,
+      "amount": 1403.43,
+      "day": 45,
+      "score": 0.6842,
+      "rsi": 17.3,
+      "macd_hist": -0.0001,
+      "bb_pos": 0,
+      "atr_pct": 6.72
+    },
+    {
+      "type": "BUY",
+      "sym": "DOGE",
+      "price": 0.08148,
+      "amount": 1122.74,
+      "day": 45,
+      "score": 0.6782,
+      "rsi": 9.5,
+      "macd_hist": -0.002,
+      "bb_pos": 0,
+      "atr_pct": 5.92
+    },
+    {
+      "type": "BUY",
+      "sym": "TRX",
+      "price": 0.3203,
+      "amount": 898.2,
+      "day": 45,
+      "score": 0.6773,
+      "rsi": 25.0,
+      "macd_hist": -0.0049,
+      "bb_pos": 0,
+      "atr_pct": 2.93
+    },
+    {
+      "type": "BUY",
+      "sym": "1INCH",
+      "price": 0.0685,
+      "amount": 718.56,
+      "day": 45,
+      "score": 0.6737,
+      "rsi": 13.9,
+      "macd_hist": -0.0017,
+      "bb_pos": 0,
+      "atr_pct": 6.25
+    },
+    {
+      "type": "SELL",
+      "sym": "SHIB",
+      "price": 4.77e-06,
+      "pnl": 80.79,
+      "day": 59,
+      "reason": "backtest_end"
+    },
+    {
+      "type": "SELL",
+      "sym": "ZIL",
+      "price": 0.00313,
+      "pnl": 36.81,
+      "day": 59,
+      "reason": "backtest_end"
+    },
+    {
+      "type": "SELL",
+      "sym": "DOGE",
+      "price": 0.08333,
+      "pnl": 25.49,
+      "day": 59,
+      "reason": "backtest_end"
+    },
+    {
+      "type": "SELL",
+      "sym": "TRX",
+      "price": 0.3225,
+      "pnl": 6.17,
+      "day": 59,
+      "reason": "backtest_end"
+    },
+    {
+      "type": "SELL",
+      "sym": "1INCH",
+      "price": 0.0731,
+      "pnl": 48.25,
+      "day": 59,
+      "reason": "backtest_end"
+    }
+  ],
+  "equity": [
+    {
+      "day": 30,
+      "value": 10000.0
+    },
+    {
+      "day": 31,
+      "value": 10000.0
+    },
+    {
+      "day": 32,
+      "value": 10000.0
+    },
+    {
+      "day": 33,
+      "value": 10000.0
+    },
+    {
+      "day": 34,
+      "value": 10014.8
+    },
+    {
+      "day": 35,
+      "value": 9954.91
+    },
+    {
+      "day": 36,
+      "value": 9865.12
+    },
+    {
+      "day": 37,
+      "value": 9774.31
+    },
+    {
+      "day": 38,
+      "value": 9803.58
+    },
+    {
+      "day": 39,
+      "value": 9878.28
+    },
+    {
+      "day": 40,
+      "value": 9868.76
+    },
+    {
+      "day": 41,
+      "value": 9788.79
+    },
+    {
+      "day": 42,
+      "value": 9317.98
+    },
+    {
+      "day": 43,
+      "value": 9274.9
+    },
+    {
+      "day": 44,
+      "value": 9073.95
+    },
+    {
+      "day": 45,
+      "value": 8771.44
+    },
+    {
+      "day": 46,
+      "value": 8782.03
+    },
+    {
+      "day": 47,
+      "value": 8953.84
+    },
+    {
+      "day": 48,
+      "value": 8983.27
+    },
+    {
+      "day": 49,
+      "value": 8892.24
+    },
+    {
+      "day": 50,
+      "value": 8795.92
+    },
+    {
+      "day": 51,
+      "value": 8999.88
+    },
+    {
+      "day": 52,
+      "value": 8988.9
+    },
+    {
+      "day": 53,
+      "value": 9155.83
+    },
+    {
+      "day": 54,
+      "value": 9219.88
+    },
+    {
+      "day": 55,
+      "value": 9247.74
+    },
+    {
+      "day": 56,
+      "value": 9196.64
+    },
+    {
+      "day": 57,
+      "value": 9161.26
+    },
+    {
+      "day": 58,
+      "value": 8985.8
+    },
+    {
+      "day": 59,
+      "value": 8968.96
+    },
+    {
+      "day": 59,
+      "value": 8968.96
+    }
+  ]
+}
