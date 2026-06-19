@@ -1,5 +1,9 @@
 # CMC Momentum Alpha
 
+<p align="center">
+  <img src="logo.png" alt="CMC Momentum Alpha" width="480">
+</p>
+
 > BNB Hack: AI Trading Agent Edition — Track 2: Strategy Skills ($6,000)
 
 A **CMC Skill** — a structured strategy spec that any AI agent can read and execute. The agent fetches real market data, computes 6 technical and sentiment signals, detects market regime, and generates trading recommendations for 149 eligible BNB Chain tokens.
