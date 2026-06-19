@@ -15,44 +15,41 @@ python3 backtest.py
 
 A CMC Skill — one strategy spec that any LLM can read and execute.
 
-**`SKILL.md`** — the strategy. 7 signals, entry/exit rules, risk management. Written for LLMs. Read by humans.
+**`SKILL.md`** — the strategy. 6 signals, regime-adaptive entry/exit, trend filter. Written for LLMs.
 
-**`backtest.py`** — the proof. Walk-forward backtest with real Binance data. No fake numbers.
+**`backtest.py`** — the proof. Walk-forward backtest with real Binance data. +3.68% return in bear market.
 
 ## The Strategy
 
-7 signals blended into one score:
+6 signals, regime-adaptive:
 
 | Signal | Weight | Source | Logic |
 |--------|--------|--------|-------|
-| RSI (14) | 20% | Binance | Oversold = buy, overbought = sell |
-| MACD | 15% | Binance | Histogram direction |
-| Bollinger | 10% | Binance | Lower band = buy, upper = sell |
-| Volume | 15% | Binance | High volume = strong signal |
-| Fear & Greed | 15% | alternative.me | Fear = buy, greed = sell |
-| BTC Dominance | 10% | CMC | Low BTC.D = alt season |
-| Volatility | 15% | Binance | Low vol = safe = buy |
+| RSI (14) | 25% | Binance | Oversold + rising = buy |
+| MACD | 20% | Binance | Crossover direction |
+| **Trend Filter** | **25%** | **Binance** | **Price vs SMA20/SMA50** |
+| Bollinger | 10% | Binance | Lower band = buy |
+| Volume | 10% | Binance | High volume = strong signal |
+| Fear & Greed | 10% | alternative.me | Fear = buy |
 
 ```
-Score ≥ 0.55 → BUY
-Score < 0.30 → SELL
-Stop-loss: -15%
-Take-profit: +30%
-Max 5 positions, 20% each
+BULL market  → entry ≥ 0.50 (ride momentum)
+RANGING      → entry ≥ 0.55 (standard)
+BEAR market  → entry ≥ 0.65 (only strong setups)
+
+Stop-loss: -10% | Take-profit: +20%
 ```
 
-## How To Use
+## Backtest Results (Real Binance Data)
 
-### As an LLM Agent
-Read `SKILL.md`. It has everything — signal formulas, data endpoints, entry/exit rules. Fetch the data, compute the scores, generate recommendations.
-
-### As a Human
-Run `python3 backtest.py`. It fetches real data, computes all 7 signals, and shows the trade log with entry/exit prices, RSI, MACD, Bollinger values at each trade.
-
-### With Any LLM
-```bash
-# Works with OpenAI, OpenRouter, Anthropic, Gemini, DeepSeek, etc.
-export OPENAI_API_KEY=*** python3 backtest.py
+```
+Return:        +3.68%  (bear market — F&G 7-21)
+Max Drawdown:  8.52%
+Win Rate:      33.3%
+Profit Factor: 1.477
+Avg Win:       $284.60
+Avg Loss:      $96.34
+Win/Loss:      2.95x (winners 3x larger than losers)
 ```
 
 ## Files
@@ -60,17 +57,10 @@ export OPENAI_API_KEY=*** python3 backtest.py
 ```
 SKILL.md               ← The strategy (read this first)
 backtest.py            ← The proof (run this second)
+backtest_results.json  ← Full trade log + equity curve
 eligible_tokens.txt    ← 149 approved BEP-20 tokens
 README.md              ← You are here
 ```
-
-## Data Sources
-
-All free, no API key:
-
-- **Binance** — OHLCV candles (RSI, MACD, Bollinger, ATR)
-- **CoinMarketCap** — Top listings, BTC dominance
-- **alternative.me** — Fear & Greed Index
 
 ## License
 

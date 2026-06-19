@@ -1,334 +1,737 @@
 {
-  "return_pct": -10.31,
-  "max_drawdown_pct": 12.42,
-  "win_rate": 50.0,
-  "total_trades": 20,
+  "return_pct": 3.68,
+  "max_drawdown_pct": 8.52,
+  "win_rate": 33.3,
+  "profit_factor": 1.477,
+  "avg_win": 284.6,
+  "avg_loss": -96.34,
+  "total_trades": 24,
   "trades": [
     {
       "type": "BUY",
-      "sym": "SHIB",
-      "price": 5.58e-06,
+      "sym": "ZEC",
+      "price": 316.75,
       "amount": 2000.0,
-      "day": 33,
-      "score": 0.5843,
-      "rsi": 18.0,
-      "macd_hist": 0.0,
-      "bb_pos": 0.13,
-      "atr_pct": 4.61
+      "day": 60,
+      "score": 0.6466,
+      "regime": "RANGING",
+      "threshold": 0.55,
+      "rsi": 48.7,
+      "rsi_prev": 63.8,
+      "rsi_rising": false,
+      "macd_hist": 5.2137,
+      "macd_cross": "bull",
+      "price_vs_sma20": "above",
+      "sma20_vs_sma50": "above",
+      "bb_pos": 0.5,
+      "atr_pct": 9.84,
+      "signals": {
+        "rsi": 0.5,
+        "macd": 0.8,
+        "trend": 0.9,
+        "bb": 0.499,
+        "vol": 0.576,
+        "fg": 0.29
+      }
     },
     {
       "type": "BUY",
-      "sym": "LTC",
-      "price": 52.76,
+      "sym": "SHIB",
+      "price": 6.09e-06,
       "amount": 1600.0,
-      "day": 33,
-      "score": 0.5818,
-      "rsi": 19.2,
+      "day": 60,
+      "score": 0.6032,
+      "regime": "RANGING",
+      "threshold": 0.55,
+      "rsi": 48.7,
+      "rsi_prev": 53.9,
+      "rsi_rising": false,
       "macd_hist": 0.0,
-      "bb_pos": 0.11,
-      "atr_pct": 3.9
+      "macd_cross": "bull",
+      "price_vs_sma20": "above",
+      "sma20_vs_sma50": "above",
+      "bb_pos": 0.69,
+      "atr_pct": 4.21,
+      "signals": {
+        "rsi": 0.5,
+        "macd": 0.8,
+        "trend": 0.9,
+        "bb": 0.307,
+        "vol": 0.335,
+        "fg": 0.29
+      }
     },
     {
       "type": "BUY",
-      "sym": "ADA",
-      "price": 0.2423,
+      "sym": "LRC",
+      "price": 0.0402,
       "amount": 1280.0,
-      "day": 33,
-      "score": 0.5622,
-      "rsi": 18.6,
-      "macd_hist": 0.0,
-      "bb_pos": 0.12,
-      "atr_pct": 4.76
+      "day": 60,
+      "score": 0.579,
+      "regime": "RANGING",
+      "threshold": 0.55,
+      "rsi": 16.0,
+      "rsi_prev": 14.5,
+      "rsi_rising": true,
+      "macd_hist": 0.0015,
+      "macd_cross": "bull",
+      "price_vs_sma20": "below",
+      "sma20_vs_sma50": "below",
+      "bb_pos": 0,
+      "atr_pct": 8.58,
+      "signals": {
+        "rsi": 0.9,
+        "macd": 0.8,
+        "trend": 0.15,
+        "bb": 1.0,
+        "vol": 0.275,
+        "fg": 0.29
+      }
     },
     {
       "type": "BUY",
-      "sym": "ZIL",
-      "price": 0.00388,
+      "sym": "ALGO",
+      "price": 0.1032,
       "amount": 1024.0,
-      "day": 33,
-      "score": 0.5567,
-      "rsi": 29.1,
-      "macd_hist": 0.0,
-      "bb_pos": 0.18,
-      "atr_pct": 4.92
+      "day": 60,
+      "score": 0.5695,
+      "regime": "RANGING",
+      "threshold": 0.55,
+      "rsi": 35.6,
+      "rsi_prev": 34.7,
+      "rsi_rising": true,
+      "macd_hist": 0.008,
+      "macd_cross": "bull",
+      "price_vs_sma20": "below",
+      "sma20_vs_sma50": "above",
+      "bb_pos": 0.19,
+      "atr_pct": 6.37,
+      "signals": {
+        "rsi": 0.6,
+        "macd": 0.8,
+        "trend": 0.45,
+        "bb": 0.811,
+        "vol": 0.369,
+        "fg": 0.29
+      }
     },
     {
       "type": "BUY",
-      "sym": "AAVE",
-      "price": 85.59,
+      "sym": "ADA",
+      "price": 0.2499,
       "amount": 819.2,
-      "day": 33,
-      "score": 0.5536,
-      "rsi": 14.7,
-      "macd_hist": 0.0,
+      "day": 60,
+      "score": 0.5593,
+      "regime": "RANGING",
+      "threshold": 0.55,
+      "rsi": 43.5,
+      "rsi_prev": 50.8,
+      "rsi_rising": false,
+      "macd_hist": 0.0002,
+      "macd_cross": "bull",
+      "price_vs_sma20": "above",
+      "sma20_vs_sma50": "below",
+      "bb_pos": 0.54,
+      "atr_pct": 4.91,
+      "signals": {
+        "rsi": 0.5,
+        "macd": 0.8,
+        "trend": 0.65,
+        "bb": 0.464,
+        "vol": 0.364,
+        "fg": 0.29
+      }
+    },
+    {
+      "type": "SELL",
+      "sym": "LRC",
+      "price": 0.0348,
+      "pnl": -171.94,
+      "day": 64,
+      "reason": "stop_loss",
+      "regime": "RANGING"
+    },
+    {
+      "type": "BUY",
+      "sym": "STG",
+      "price": 0.2168,
+      "amount": 876.97,
+      "day": 66,
+      "score": 0.6577,
+      "regime": "RANGING",
+      "threshold": 0.55,
+      "rsi": 43.3,
+      "rsi_prev": 37.3,
+      "rsi_rising": true,
+      "macd_hist": 0.0005,
+      "macd_cross": "bull",
+      "price_vs_sma20": "above",
+      "sma20_vs_sma50": "above",
+      "bb_pos": 0.57,
+      "atr_pct": 7.07,
+      "signals": {
+        "rsi": 0.5,
+        "macd": 0.8,
+        "trend": 0.9,
+        "bb": 0.429,
+        "vol": 0.838,
+        "fg": 0.21
+      }
+    },
+    {
+      "type": "SELL",
+      "sym": "ZEC",
+      "price": 384.97,
+      "pnl": 430.75,
+      "day": 70,
+      "reason": "take_profit",
+      "regime": "RANGING"
+    },
+    {
+      "type": "BUY",
+      "sym": "SUSHI",
+      "price": 0.2176,
+      "amount": 1187.73,
+      "day": 72,
+      "score": 0.6286,
+      "regime": "RANGING",
+      "threshold": 0.55,
+      "rsi": 58.0,
+      "rsi_prev": 57.3,
+      "rsi_rising": true,
+      "macd_hist": 0.0023,
+      "macd_cross": "bull",
+      "price_vs_sma20": "above",
+      "sma20_vs_sma50": "above",
+      "bb_pos": 0.57,
+      "atr_pct": 5.99,
+      "signals": {
+        "rsi": 0.5,
+        "macd": 0.8,
+        "trend": 0.9,
+        "bb": 0.432,
+        "vol": 0.584,
+        "fg": 0.17
+      }
+    },
+    {
+      "type": "SELL",
+      "sym": "STG",
+      "price": 0.2654,
+      "pnl": 196.59,
+      "day": 75,
+      "reason": "take_profit",
+      "regime": "RANGING"
+    },
+    {
+      "type": "BUY",
+      "sym": "ATOM",
+      "price": 1.902,
+      "amount": 1164.89,
+      "day": 75,
+      "score": 0.6695,
+      "regime": "RANGING",
+      "threshold": 0.55,
+      "rsi": 55.2,
+      "rsi_prev": 54.9,
+      "rsi_rising": true,
+      "macd_hist": 0.0117,
+      "macd_cross": "bull",
+      "price_vs_sma20": "above",
+      "sma20_vs_sma50": "above",
+      "bb_pos": 0.53,
+      "atr_pct": 3.58,
+      "signals": {
+        "rsi": 0.5,
+        "macd": 0.8,
+        "trend": 0.9,
+        "bb": 0.475,
+        "vol": 1,
+        "fg": 0.12
+      }
+    },
+    {
+      "type": "SELL",
+      "sym": "ALGO",
+      "price": 0.1285,
+      "pnl": 251.04,
+      "day": 76,
+      "reason": "take_profit",
+      "regime": "RANGING"
+    },
+    {
+      "type": "BUY",
+      "sym": "AXS",
+      "price": 1.435,
+      "amount": 1186.92,
+      "day": 78,
+      "score": 0.6213,
+      "regime": "RANGING",
+      "threshold": 0.55,
+      "rsi": 39.0,
+      "rsi_prev": 64.2,
+      "rsi_rising": false,
+      "macd_hist": 0.0189,
+      "macd_cross": "bull",
+      "price_vs_sma20": "above",
+      "sma20_vs_sma50": "above",
+      "bb_pos": 0.68,
+      "atr_pct": 7.0,
+      "signals": {
+        "rsi": 0.5,
+        "macd": 0.8,
+        "trend": 0.9,
+        "bb": 0.322,
+        "vol": 0.671,
+        "fg": 0.12
+      }
+    },
+    {
+      "type": "SELL",
+      "sym": "AXS",
+      "price": 1.27,
+      "pnl": -136.48,
+      "day": 82,
+      "reason": "stop_loss",
+      "regime": "RANGING"
+    },
+    {
+      "type": "BUY",
+      "sym": "DOGE",
+      "price": 0.11336,
+      "amount": 1159.63,
+      "day": 84,
+      "score": 0.6033,
+      "regime": "RANGING",
+      "threshold": 0.55,
+      "rsi": 58.1,
+      "rsi_prev": 65.1,
+      "rsi_rising": false,
+      "macd_hist": 0.0008,
+      "macd_cross": "bull",
+      "price_vs_sma20": "above",
+      "sma20_vs_sma50": "above",
+      "bb_pos": 0.75,
+      "atr_pct": 4.43,
+      "signals": {
+        "rsi": 0.5,
+        "macd": 0.8,
+        "trend": 0.9,
+        "bb": 0.253,
+        "vol": 0.55,
+        "fg": 0.13
+      }
+    },
+    {
+      "type": "SELL",
+      "sym": "SHIB",
+      "price": 5.87e-06,
+      "pnl": -57.8,
+      "day": 85,
+      "reason": "time_exit",
+      "regime": "RANGING"
+    },
+    {
+      "type": "BUY",
+      "sym": "APE",
+      "price": 0.1431,
+      "amount": 1236.14,
+      "day": 87,
+      "score": 0.6223,
+      "regime": "RANGING",
+      "threshold": 0.55,
+      "rsi": 28.8,
+      "rsi_prev": 26.4,
+      "rsi_rising": true,
+      "macd_hist": 0.0129,
+      "macd_cross": "bull",
+      "price_vs_sma20": "below",
+      "sma20_vs_sma50": "above",
       "bb_pos": 0.14,
-      "atr_pct": 5.51
+      "atr_pct": 8.01,
+      "signals": {
+        "rsi": 0.9,
+        "macd": 0.8,
+        "trend": 0.45,
+        "bb": 0.858,
+        "vol": 0.28,
+        "fg": 0.11
+      }
     },
     {
       "type": "SELL",
       "sym": "ADA",
-      "price": 0.2004,
-      "pnl": -221.35,
-      "day": 43,
-      "reason": "stop_loss"
-    },
-    {
-      "type": "SELL",
-      "sym": "AAVE",
-      "price": 71.35,
-      "pnl": -136.29,
-      "day": 44,
-      "reason": "stop_loss"
-    },
-    {
-      "type": "SELL",
-      "sym": "SHIB",
-      "price": 4.56e-06,
-      "pnl": -365.59,
-      "day": 45,
-      "reason": "stop_loss"
-    },
-    {
-      "type": "SELL",
-      "sym": "LTC",
-      "price": 43.32,
-      "pnl": -286.28,
-      "day": 45,
-      "reason": "stop_loss"
-    },
-    {
-      "type": "SELL",
-      "sym": "ZIL",
-      "price": 0.00305,
-      "pnl": -219.05,
-      "day": 45,
-      "reason": "stop_loss"
+      "price": 0.2482,
+      "pnl": -5.57,
+      "day": 88,
+      "reason": "time_exit",
+      "regime": "RANGING"
     },
     {
       "type": "BUY",
-      "sym": "SHIB",
-      "price": 4.56e-06,
-      "amount": 1754.29,
-      "day": 45,
-      "score": 0.7018,
-      "rsi": 14.4,
-      "macd_hist": -0.0,
-      "bb_pos": 0,
-      "atr_pct": 5.55
-    },
-    {
-      "type": "BUY",
-      "sym": "ZIL",
-      "price": 0.00305,
-      "amount": 1403.43,
-      "day": 45,
-      "score": 0.6842,
-      "rsi": 17.3,
-      "macd_hist": -0.0001,
-      "bb_pos": 0,
-      "atr_pct": 6.72
-    },
-    {
-      "type": "BUY",
-      "sym": "DOGE",
-      "price": 0.08148,
-      "amount": 1122.74,
-      "day": 45,
-      "score": 0.6782,
-      "rsi": 9.5,
-      "macd_hist": -0.002,
-      "bb_pos": 0,
-      "atr_pct": 5.92
-    },
-    {
-      "type": "BUY",
-      "sym": "TRX",
-      "price": 0.3203,
-      "amount": 898.2,
-      "day": 45,
-      "score": 0.6773,
-      "rsi": 25.0,
-      "macd_hist": -0.0049,
-      "bb_pos": 0,
-      "atr_pct": 2.93
-    },
-    {
-      "type": "BUY",
-      "sym": "1INCH",
-      "price": 0.0685,
-      "amount": 718.56,
-      "day": 45,
-      "score": 0.6737,
-      "rsi": 13.9,
-      "macd_hist": -0.0017,
-      "bb_pos": 0,
-      "atr_pct": 6.25
+      "sym": "DYDX",
+      "price": 0.15569,
+      "amount": 1151.64,
+      "day": 90,
+      "score": 0.6976,
+      "regime": "BEAR",
+      "threshold": 0.65,
+      "rsi": 29.3,
+      "rsi_prev": 50.3,
+      "rsi_rising": false,
+      "macd_hist": 0.0074,
+      "macd_cross": "bull",
+      "price_vs_sma20": "above",
+      "sma20_vs_sma50": "above",
+      "bb_pos": 0.51,
+      "atr_pct": 8.94,
+      "signals": {
+        "rsi": 0.7,
+        "macd": 0.8,
+        "trend": 0.9,
+        "bb": 0.491,
+        "vol": 0.765,
+        "fg": 0.12
+      }
     },
     {
       "type": "SELL",
-      "sym": "SHIB",
-      "price": 4.77e-06,
-      "pnl": 80.79,
-      "day": 59,
-      "reason": "backtest_end"
-    },
-    {
-      "type": "SELL",
-      "sym": "ZIL",
-      "price": 0.00313,
-      "pnl": 36.81,
-      "day": 59,
-      "reason": "backtest_end"
+      "sym": "SUSHI",
+      "price": 0.2012,
+      "pnl": -89.52,
+      "day": 93,
+      "reason": "time_exit",
+      "regime": "BEAR"
     },
     {
       "type": "SELL",
       "sym": "DOGE",
-      "price": 0.08333,
-      "pnl": 25.49,
-      "day": 59,
-      "reason": "backtest_end"
+      "price": 0.10105,
+      "pnl": -125.93,
+      "day": 95,
+      "reason": "stop_loss",
+      "regime": "BEAR"
     },
     {
       "type": "SELL",
-      "sym": "TRX",
-      "price": 0.3225,
-      "pnl": 6.17,
-      "day": 59,
-      "reason": "backtest_end"
+      "sym": "APE",
+      "price": 0.1276,
+      "pnl": -133.89,
+      "day": 97,
+      "reason": "stop_loss",
+      "regime": "BEAR"
     },
     {
       "type": "SELL",
-      "sym": "1INCH",
-      "price": 0.0731,
-      "pnl": 48.25,
-      "day": 59,
-      "reason": "backtest_end"
+      "sym": "DYDX",
+      "price": 0.19084,
+      "pnl": 260.0,
+      "day": 100,
+      "reason": "take_profit",
+      "regime": "BEAR"
+    },
+    {
+      "type": "SELL",
+      "sym": "ATOM",
+      "price": 1.821,
+      "pnl": -49.61,
+      "day": 102,
+      "reason": "time_exit",
+      "regime": "BEAR"
     }
   ],
   "equity": [
     {
-      "day": 30,
+      "day": 60,
       "value": 10000.0
     },
     {
-      "day": 31,
-      "value": 10000.0
+      "day": 61,
+      "value": 10025.12
     },
     {
-      "day": 32,
-      "value": 10000.0
+      "day": 62,
+      "value": 10199.63
     },
     {
-      "day": 33,
-      "value": 10000.0
+      "day": 63,
+      "value": 10361.06
     },
     {
-      "day": 34,
-      "value": 10014.8
+      "day": 64,
+      "value": 10238.1
     },
     {
-      "day": 35,
-      "value": 9954.91
+      "day": 65,
+      "value": 10275.91
     },
     {
-      "day": 36,
-      "value": 9865.12
+      "day": 66,
+      "value": 10212.18
     },
     {
-      "day": 37,
-      "value": 9774.31
+      "day": 67,
+      "value": 10023.58
     },
     {
-      "day": 38,
-      "value": 9803.58
+      "day": 68,
+      "value": 9973.21
     },
     {
-      "day": 39,
-      "value": 9878.28
+      "day": 69,
+      "value": 10129.61
     },
     {
-      "day": 40,
-      "value": 9868.76
+      "day": 70,
+      "value": 10352.45
     },
     {
-      "day": 41,
-      "value": 9788.79
+      "day": 71,
+      "value": 10411.86
     },
     {
-      "day": 42,
-      "value": 9317.98
+      "day": 72,
+      "value": 10395.93
     },
     {
-      "day": 43,
-      "value": 9274.9
+      "day": 73,
+      "value": 10404.05
     },
     {
-      "day": 44,
-      "value": 9073.95
+      "day": 74,
+      "value": 10604.78
     },
     {
-      "day": 45,
-      "value": 8771.44
+      "day": 75,
+      "value": 10833.93
     },
     {
-      "day": 46,
-      "value": 8782.03
+      "day": 76,
+      "value": 10847.57
     },
     {
-      "day": 47,
-      "value": 8953.84
+      "day": 77,
+      "value": 11086.38
     },
     {
-      "day": 48,
-      "value": 8983.27
+      "day": 78,
+      "value": 10999.41
     },
     {
-      "day": 49,
-      "value": 8892.24
+      "day": 79,
+      "value": 11200.96
     },
     {
-      "day": 50,
-      "value": 8795.92
+      "day": 80,
+      "value": 11207.49
     },
     {
-      "day": 51,
-      "value": 8999.88
+      "day": 81,
+      "value": 11035.68
     },
     {
-      "day": 52,
-      "value": 8988.9
+      "day": 82,
+      "value": 10832.94
     },
     {
-      "day": 53,
-      "value": 9155.83
+      "day": 83,
+      "value": 10871.43
     },
     {
-      "day": 54,
-      "value": 9219.88
+      "day": 84,
+      "value": 10642.01
     },
     {
-      "day": 55,
-      "value": 9247.74
+      "day": 85,
+      "value": 10543.92
     },
     {
-      "day": 56,
-      "value": 9196.64
+      "day": 86,
+      "value": 10497.73
     },
     {
-      "day": 57,
-      "value": 9161.26
+      "day": 87,
+      "value": 10504.23
     },
     {
-      "day": 58,
-      "value": 8985.8
+      "day": 88,
+      "value": 10414.47
     },
     {
-      "day": 59,
-      "value": 8968.96
+      "day": 89,
+      "value": 10423.06
     },
     {
-      "day": 59,
-      "value": 8968.96
+      "day": 90,
+      "value": 10516.66
+    },
+    {
+      "day": 91,
+      "value": 10292.02
+    },
+    {
+      "day": 92,
+      "value": 10417.44
+    },
+    {
+      "day": 93,
+      "value": 10252.43
+    },
+    {
+      "day": 94,
+      "value": 10379.77
+    },
+    {
+      "day": 95,
+      "value": 10515.18
+    },
+    {
+      "day": 96,
+      "value": 10391.11
+    },
+    {
+      "day": 97,
+      "value": 10285.11
+    },
+    {
+      "day": 98,
+      "value": 10406.99
+    },
+    {
+      "day": 99,
+      "value": 10451.06
+    },
+    {
+      "day": 100,
+      "value": 10451.56
+    },
+    {
+      "day": 101,
+      "value": 10419.71
+    },
+    {
+      "day": 102,
+      "value": 10367.65
+    },
+    {
+      "day": 103,
+      "value": 10367.65
+    },
+    {
+      "day": 104,
+      "value": 10367.65
+    },
+    {
+      "day": 105,
+      "value": 10367.65
+    },
+    {
+      "day": 106,
+      "value": 10367.65
+    },
+    {
+      "day": 107,
+      "value": 10367.65
+    },
+    {
+      "day": 108,
+      "value": 10367.65
+    },
+    {
+      "day": 109,
+      "value": 10367.65
+    },
+    {
+      "day": 110,
+      "value": 10367.65
+    },
+    {
+      "day": 111,
+      "value": 10367.65
+    },
+    {
+      "day": 112,
+      "value": 10367.65
+    },
+    {
+      "day": 113,
+      "value": 10367.65
+    },
+    {
+      "day": 114,
+      "value": 10367.65
+    },
+    {
+      "day": 115,
+      "value": 10367.65
+    },
+    {
+      "day": 116,
+      "value": 10367.65
+    },
+    {
+      "day": 117,
+      "value": 10367.65
+    },
+    {
+      "day": 118,
+      "value": 10367.65
+    },
+    {
+      "day": 119,
+      "value": 10367.65
+    },
+    {
+      "day": 119,
+      "value": 10367.65
     }
-  ]
+  ],
+  "regime_log": [
+    {
+      "day": 63,
+      "regime": "RANGING",
+      "fng": 21
+    },
+    {
+      "day": 70,
+      "regime": "RANGING",
+      "fng": 16
+    },
+    {
+      "day": 77,
+      "regime": "RANGING",
+      "fng": 9
+    },
+    {
+      "day": 84,
+      "regime": "RANGING",
+      "fng": 13
+    },
+    {
+      "day": 91,
+      "regime": "BEAR",
+      "fng": 11
+    },
+    {
+      "day": 98,
+      "regime": "BEAR",
+      "fng": 15
+    },
+    {
+      "day": 105,
+      "regime": "BEAR",
+      "fng": 18
+    },
+    {
+      "day": 112,
+      "regime": "BEAR",
+      "fng": 13
+    },
+    {
+      "day": 119,
+      "regime": "BEAR",
+      "fng": 7
+    }
+  ],
+  "tokens_tested": 57
 }
